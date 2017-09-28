@@ -2,9 +2,10 @@ var app           = require('./app');
 var mongoose      = require('mongoose');
 
 var port          = process.env.PORT || 3000,
-    ip            = process.env.IP,
-    mongoURL      = process.env.MONGO_URL,
-    mongoURLLabel = "";
+    ip            = process.env.IP || '0.0.0.0',
+    mongo_host    = process.env.MONGO_HOST;
+
+console.warn(process.env);
 
 
 if (typeof ip === "undefined") {
@@ -16,9 +17,9 @@ var db = null;
 
 var initDb = function(callback) {
 
-  if (typeof mongoURL === "undefined") {
-    mongoURL = "mongodb://"+ip+':27017/';
-    console.warn('LOCAL DB on',mongoURL);
+  if (typeof mongo_host === "undefined") {
+    mongo_host = "mongodb://"+ip+':27017/';
+    console.warn('LOCAL DB on',mongo_host);
 
   }
 
@@ -30,9 +31,9 @@ var initDb = function(callback) {
     }
   };
 
-  mongoose.connect(mongoURL, options).then(
+  mongoose.connect(mongo_host, options).then(
     () => {
-      console.log('Connected to MongoDB at: %s', mongoURL);
+      console.log('Connected to MongoDB at: %s', mongo_host);
       db = "connected";
     },
     err => {
