@@ -1,5 +1,7 @@
-const prod='http://install.gls.federicocrivellaro.com/',
-			dev='http://127.0.0.1:3000/';
+const subdomain	= "tagproduct",
+			shortname	= "tp",
+			prod			= 'http://'+subdomain+'.federicocrivellaro.com/install/auth',
+			dev				= 'http://127.0.0.1:3000/';
 
 module.exports = {
 	oauth: {
@@ -23,7 +25,7 @@ module.exports = {
 	          pass: "federicorhm"
 	      }
 	  },
-	  mailSubject: 'advanced.js crashreporter test',
+	  mailSubject: 'crashreporter '+subdomain,
 	  mailFrom: 'crashreporter <crivellarofederico@gmail.com>',
 	  mailTo: 'info@robotshatemonkeys.com'
 	},

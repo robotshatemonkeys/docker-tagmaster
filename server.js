@@ -5,10 +5,8 @@ var port          = process.env.PORT || 3000,
     ip            = process.env.IP || '0.0.0.0',
     mongo_host    = process.env.MONGO_HOST;
 
-console.log("--------------------------------");
-console.log(process.env);
-console.log("--------------------------------");
 
+console.warn(process.env.IP);
 
 if (typeof ip === "undefined") {
   console.warn('No NODEJS_IP var, using 127.0.0.1');

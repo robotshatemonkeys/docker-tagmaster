@@ -6,11 +6,11 @@ const express 		= require('express'),
 
 const router = express.Router();
 
+
 let path=credentials.path.dev;
 if(process.env.MONGO_HOST){
 	path=credentials.path.prod;
 }
-console.log(path);
 
 /* GET home page. */
 router.get('/auth', function(req, res, next) {
@@ -46,9 +46,8 @@ router.get('/finish_auth', function(req, res, next) {
       setDefaultsOnInsert: true
     };
 
-  	Shop.findOneAndUpdate({"name":query_params.shop},update,options,function(err, shops){
+  	Shop.findOneAndUpdate({"name":query_params.shop},update,options,function(err,shops){
 			if (err) return res.send(500, { error: err });
-			console.log(shops);
 
 			if(shops==null){
 				new Shop({
@@ -56,6 +55,7 @@ router.get('/finish_auth', function(req, res, next) {
 	      	token: data.access_token
 				}).save();
 			}
+
 			let webhooks=credentials.webhooks;
 
 			for (let i = 0; i < webhooks.length; i++) {
