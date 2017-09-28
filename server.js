@@ -5,7 +5,9 @@ var port          = process.env.PORT || 3000,
     ip            = process.env.IP || '0.0.0.0',
     mongo_host    = process.env.MONGO_HOST;
 
-console.warn(process.env);
+console.log("--------------------------------");
+console.log(process.env);
+console.log("--------------------------------");
 
 
 if (typeof ip === "undefined") {

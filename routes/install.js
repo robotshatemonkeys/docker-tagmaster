@@ -7,9 +7,10 @@ const express 		= require('express'),
 const router = express.Router();
 
 let path=credentials.path.dev;
-if(process.env.MONGO_URL){
-	path=credentials.path.dev;
+if(process.env.MONGO_HOST){
+	path=credentials.path.prod;
 }
+console.log(path);
 
 /* GET home page. */
 router.get('/auth', function(req, res, next) {
