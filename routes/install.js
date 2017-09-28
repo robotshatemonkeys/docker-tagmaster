@@ -6,8 +6,8 @@ const express 		= require('express'),
 
 const router = express.Router();
 
-let path=credentials.path.dev;
-if(process.env.OPENSHIFT_MONGODB_DB_URL){
+let path=credentials.path.prod;
+if(process.env.MONGO_URL){
 	path=credentials.path.prod;
 }
 
