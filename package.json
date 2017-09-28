@@ -20,11 +20,24 @@
   },
   "homepage": "https://github.com/jameskolce/hapi-example#readme",
   "dependencies": {
-    "boom": "^3.1.2",
-    "dotenv": "^2.0.0",
-    "hapi": "^13.3.0",
-    "joi": "^8.0.5",
-    "mongojs": "^2.3.0"
+    "bignumber.js": "^4.1.0",
+    "body-parser": "^1.18.2",
+    "chai": "^3.5.0",
+    "chai-http": "^2.0.1",
+    "cookie-parser": "^1.4.3",
+    "crashreporter": "^1.1.0",
+    "csvtojson": "^1.1.7",
+    "express": "^4.13.4",
+    "express-handlebars": "^3.0.0",
+    "formidable": "^1.1.1",
+    "ftp": "^0.3.10",
+    "json-bigint": "^0.2.3",
+    "mocha": "^2.4.5",
+    "mongodb": "^2.1.16",
+    "mongoose": "^4.11.13",
+    "morgan": "^1.7.0",
+    "object-assign": "4.1.0",
+    "shopify-node-api": "^1.8.0"
   },
   "devDependencies": {
     "nodemon": "^1.9.1"
