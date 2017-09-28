@@ -1,38 +1,28 @@
-var app = require('./app');
-var port = process.env.PORT || 3000,
-    ip   = process.env.IP   || '0.0.0.0',
-    mongoURL = process.env.MONGO_URL,
+var app           = require('./app');
+var mongoose      = require('mongoose');
+
+var port          = process.env.PORT || 3000,
+    ip            = process.env.IP,
+    mongoURL      = process.env.MONGO_URL,
     mongoURLLabel = "";
 
-Object.assign=require('object-assign')
 
-if (mongoURL == null && process.env.DATABASE_SERVICE_NAME) {
-  var mongoServiceName = process.env.DATABASE_SERVICE_NAME.toUpperCase(),
-      mongoHost = process.env[mongoServiceName + '_SERVICE_HOST'],
-      mongoPort = process.env[mongoServiceName + '_SERVICE_PORT'],
-      mongoDatabase = process.env[mongoServiceName + '_DATABASE'],
-      mongoPassword = process.env[mongoServiceName + '_PASSWORD']
-      mongoUser = process.env[mongoServiceName + '_USER'];
-
-  if (mongoHost && mongoPort && mongoDatabase) {
-    mongoURLLabel = mongoURL = 'mongodb://';
-    if (mongoUser && mongoPassword) {
-      mongoURL += mongoUser + ':' + mongoPassword + '@';
-    }
-    // Provide UI label that excludes user id and pw
-    mongoURLLabel += mongoHost + ':' + mongoPort + '/' + mongoDatabase;
-    mongoURL += mongoHost + ':' +  mongoPort + '/' + mongoDatabase;
-  }
+if (typeof ipaddress === "undefined") {
+  console.warn('No NODEJS_IP var, using 127.0.0.1');
+  ip = "127.0.0.1";
 }
-var db = null,
-    dbDetails = new Object();
 
+var db = null;
 
 var initDb = function(callback) {
-  if (mongoURL == null) return;
 
-  var mongodb = require('mongodb');
-  if (mongodb == null) return;
+  if (typeof mongoURL === "undefined") {
+    mongoURL = "mongodb://"+ip+':27017/';
+    console.warn('LOCAL DB on',mongoURL);
+
+  }
+
+
 
   let options = {
     server: {
@@ -43,10 +33,7 @@ var initDb = function(callback) {
   mongoose.connect(mongoURL, options).then(
     () => {
       console.log('Connected to MongoDB at: %s', mongoURL);
-      db = conn;
-      dbDetails.databaseName = db.databaseName;
-      dbDetails.url = mongoURLLabel;
-      dbDetails.type = 'MongoDB';
+      db = "connected";
     },
     err => {
       console.log(err);
@@ -62,6 +49,7 @@ if (!db) {
     console.log('Error connecting to Mongo. Message:\n'+err);
   });
 }
+
 app.listen(port, ip);
 console.log('Server running on http://%s:%s', ip, port);
 

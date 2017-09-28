@@ -1,7 +1,7 @@
 {
-  "name": "hapi-example",
+  "name": "docker-gls",
   "version": "0.1.0",
-  "description": "API Example with Hapi",
+  "description": "DOCKER NODE SHOPIFY APP",
   "main": "server.js",
   "private": true,
   "scripts": {
@@ -15,10 +15,6 @@
   },
   "author": "James Kolce",
   "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/jameskolce/hapi-example/issues"
-  },
-  "homepage": "https://github.com/jameskolce/hapi-example#readme",
   "dependencies": {
     "bignumber.js": "^4.1.0",
     "body-parser": "^1.18.2",
