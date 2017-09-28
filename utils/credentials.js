@@ -1,5 +1,5 @@
 const prod='http://install.gls.federicocrivellaro.com/',
-			dev='http://0.0.0.0:8080/';
+			dev='http://127.0.0.1:3000/';
 
 module.exports = {
 	oauth: {

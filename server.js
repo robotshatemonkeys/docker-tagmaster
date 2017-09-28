@@ -7,7 +7,7 @@ var port          = process.env.PORT || 3000,
     mongoURLLabel = "";
 
 
-if (typeof ipaddress === "undefined") {
+if (typeof ip === "undefined") {
   console.warn('No NODEJS_IP var, using 127.0.0.1');
   ip = "127.0.0.1";
 }

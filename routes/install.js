@@ -6,9 +6,9 @@ const express 		= require('express'),
 
 const router = express.Router();
 
-let path=credentials.path.prod;
+let path=credentials.path.dev;
 if(process.env.MONGO_URL){
-	path=credentials.path.prod;
+	path=credentials.path.dev;
 }
 
 /* GET home page. */
