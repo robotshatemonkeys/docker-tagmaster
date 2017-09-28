@@ -1,10 +1,10 @@
-const prod='http://nodejs-mongo-persistent-blak-gls.1d35.starter-us-east-1.openshiftapps.com/',
+const prod='http://install.gls.federicocrivellaro.com/',
 			dev='http://0.0.0.0:8080/';
 
 module.exports = {
 	oauth: {
-		shopify_api_key: '9f3dc823496745120efebe466e15a44c', // Your API key
-		shopify_shared_secret: '312594f20fe6b4d3ac0a4a817442c37e', // Your Shared Secret
+		shopify_api_key: 'db740b5754795ac6c79b9e51ab8fa014', // Your API key
+		shopify_shared_secret: 'd82e5bd3a189ecf2c645fff945be3319', // Your Shared Secret
 		shopify_scope: 'read_orders,write_orders',
     redirect_uri:'install/finish_auth',
 		nonce: '' // you must provide a randomly selected value unique for each authorization request
